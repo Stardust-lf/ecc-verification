@@ -10,7 +10,9 @@ config = Configuration(
     reverse_output=False
     )
 calculator = Calculator(config, optimized=True)
-expected = 0xBC
-data = bytes([0,1,2,3,4,5])
-assert expected == calculator.checksum(data)
-print(calculator.verify(data, expected))
+# expected = 0xBC
+data =bytes([6,5,4,3,2,1])
+checksum = calculator.checksum(data)
+print(bin(checksum))
+# assert expected == calculator.checksum(data)
+print(calculator.verify(data,checksum ))

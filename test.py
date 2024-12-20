@@ -1,7 +1,5 @@
-for x in range(256):
-    # Calculate the polynomial result modulo 512
-    result = (x**8 + x**2 + x**1 + 1) % 512
+from parametric_crc import *
 
-    # Check if the 9th bit (bit at index 8) is 1
-    if (result >> 8) & 1 == 1:
-        print(f"x: {x}, result: {bin(result)}")
+xorout = 0x0
+crc8_rohc = specialized_crc(4, 0x07, 0,True , True, 0, tableless=True)
+print(bin(crc8_rohc([6,5,4,3,2,1])))
