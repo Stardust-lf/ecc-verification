@@ -1,6 +1,9 @@
 from crc import Calculator, Crc8
 from crc import Configuration
+import reedsolo as rs
+import bchlib
 
+help(bchlib)
 config = Configuration(
     width = 8,
     polynomial=0x7,
@@ -11,6 +14,7 @@ config = Configuration(
     )
 calculator = Calculator(config, optimized=True)
 # expected = 0xBC
+
 data =bytes([6,5,4,3,2,1])
 checksum = calculator.checksum(data)
 print(bin(checksum))
